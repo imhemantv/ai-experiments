@@ -1,0 +1,40 @@
+{
+  "module": "foundations",
+  "dataset_hash": "replace-with-sha256",
+  "system_version": "git:replace-with-commit",
+  "sample_size": 300,
+  "command": "python -m workbench.cli benchmark --cases 300 --out artifacts/module-01/runs.jsonl",
+  "command_status": "passed",
+  "metrics": {
+    "schema_validity_percent": 100.0,
+    "p95_latency_ms": 850
+  },
+  "statistics": {
+    "numerator": 300,
+    "denominator": 300,
+    "metric": "schema_validity_percent",
+    "confidence_method": "exact one-sided binomial for schema validity"
+  },
+  "artifacts": [
+    {
+      "role": "dataset",
+      "path": "dataset.jsonl",
+      "sha256": "replace-with-dataset-sha256",
+      "line_count": 300
+    },
+    {
+      "role": "run_records",
+      "path": "runs.jsonl",
+      "sha256": "replace-with-artifact-sha256",
+      "line_count": 300
+    }
+  ],
+  "failures": [],
+  "protocol": {
+    "declared_before_run": true,
+    "baseline": "offline-provider",
+    "candidate": "hosted-model-alias",
+    "holdout_used_for_tuning": false,
+    "confidence_method": "paired bootstrap where applicable"
+  }
+}
