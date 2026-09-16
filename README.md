@@ -1,47 +1,44 @@
-# AI Engineering Course for Software Developers
+# AI Experiments
 
-A project-first, self-paced course for experienced software engineers moving
-into applied AI engineering. The curriculum emphasizes executable systems,
-controlled experiments, measurable benchmarks, failure analysis, production
-operations, security, and interview defense rather than model training or
-data-science workflows.
+This repository is my engineering workspace for learning, building, measuring,
+and documenting applied AI systems.
 
-## Start the course
+The goal is not to collect isolated demos. Each project should test a clear
+hypothesis, preserve reproducible evidence, expose failure modes, and produce
+an engineering decision that can survive review.
 
-Open `index.html` in a browser:
+## Repository structure
 
-```powershell
-Start-Process .\index.html
-```
+| Area | Purpose |
+|---|---|
+| [`experiments/`](experiments/) | Runnable investigations of models, prompts, retrieval, agents, evaluation, safety, latency, and cost |
+| [`benchmarks/`](benchmarks/) | Reusable datasets, protocols, result summaries, and comparisons across experiments |
+| [`learning/`](learning/) | Structured learning programs and implementation exercises |
+| [`notes/`](notes/) | Architecture decisions, paper breakdowns, interview defenses, and lessons from failed experiments |
 
-Progress, notes, benchmark results, and evidence attestations are stored in
-the browser's local storage.
+## Current work
 
-## Starter workbench
+### Learning
 
-The repository includes:
+- [AI Engineering for Software Developers](learning/ai-engineering-course/) -
+  an interactive, project-first learning path with a runnable Python workbench,
+  benchmarks, evidence gates, production exercises, and interview defense.
 
-- `ai-engineering-workbench-starter\` - editable Python source and tests
-- `ai-engineering-workbench-starter.zip` - downloadable clean starter archive
+### Experiments
 
-Run the starter:
+New experiment projects will be indexed here as they are added.
 
-```powershell
-cd .\ai-engineering-workbench-starter
-py -3.12 -m pip install -e .
-py -3.12 -m unittest discover -s tests -v
-py -3.12 -m workbench.cli benchmark --cases 300 --out artifacts\module-01\runs.jsonl
-py -3.12 -m workbench.evidence --module foundations artifacts\module-01\evidence.json
-```
+## Experiment standard
 
-## Learning standard
+Every meaningful experiment should record:
 
-For every module:
+1. **Question** - the decision or uncertainty being investigated.
+2. **Hypothesis** - a falsifiable prediction made before running the test.
+3. **Protocol** - fixed inputs, baselines, metrics, environment, and stopping criteria.
+4. **Execution** - reproducible commands and versioned code.
+5. **Evidence** - raw traces, aggregate metrics, failures, and uncertainty.
+6. **Decision** - what changed because of the result and what remains unknown.
 
-1. State a falsifiable hypothesis.
-2. Change one independent variable.
-3. Run fixed positive, adversarial, and failure cases.
-4. Preserve raw traces and machine-checkable evidence.
-5. Explain what the results support and what they do not.
-6. Defend the design and tradeoffs in an independently reviewed cold task.
+Use the template in [`experiments/README.md`](experiments/README.md) when
+starting a new investigation.
 
